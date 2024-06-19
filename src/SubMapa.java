@@ -5,7 +5,9 @@ public class SubMapa {
     protected char[][] subMapa;
     private  HashMap<Integer, Integer> recorridoY;
     private HashMap<Integer, Integer> recorridoX;
-    private int idHash = 0;
+    private int idHash = 1;
+
+    private int idRetorno;
 
 
 
@@ -18,6 +20,18 @@ public class SubMapa {
         recorridoY = new HashMap<>();
         recorridoX = new HashMap<>();
 
+    }
+
+    public int getIdRetorno() {
+        return idRetorno;
+    }
+
+    public HashMap<Integer, Integer> getRecorridoY() {
+        return recorridoY;
+    }
+
+    public HashMap<Integer, Integer> getRecorridoX() {
+        return recorridoX;
     }
 
     public void imprimirSubMapa() {
@@ -39,6 +53,7 @@ public class SubMapa {
 
     private void coordenadaY(int posicionY) {
         recorridoY.put(idHash, posicionY);
+        idRetorno = recorridoY.size();
     }
 
     private void coordenadaX(int posicionX) {
@@ -57,13 +72,9 @@ public class SubMapa {
         }
     }
 
-    public static void main(String[] args) {
-        SubMapa mapa = new SubMapa();
-        mapa.movimientosSubMapa(2, 3);
-        mapa.movimientosSubMapa(4, 5);
-        mapa.imprimirSubMapa();
-        mapa.imprimirHas();
-    }
+
+
+
 }
 
 

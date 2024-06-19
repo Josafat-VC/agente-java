@@ -8,7 +8,7 @@ public class Agente {
     protected int anteriorX;
     protected int anteriorY;
     private final Mapa mapa;
-    protected final SubMapa subMapa;
+    protected  SubMapa subMapa;
     private int contadorRastro;
     private int recurso;
 
@@ -96,20 +96,31 @@ public class Agente {
         return Character.getNumericValue(c);
     }
 
+
     public void retorno(){
+        int bandera = subMapa.getRecorridoX().size();
+        System.out.println("Y: " + subMapa.getRecorridoY());
+        System.out.println("X: " + subMapa.getRecorridoX());
 
-        for (int filas = 9; filas >= 0; filas-- ){
-            for (int columnas = 9; columnas >= 0; columnas--){
-                char c = subMapa.subMapa[filas][columnas];
-                String s = Character.toString(c);
 
-                if ( s.equals( "X") ){
-                    System.out.println("Posicion Y: " + filas);
-                    System.out.println("Posicion X: " + columnas);
+        if(bandera > 0){
+                for (int i = bandera; i > 0  ; i--) {
+
+                    System.out.println("Retorno en Y, id: "+ i + " " + subMapa.getRecorridoY().get(i));
+                    System.out.println("Retorno en X, id: "+ i + " " + subMapa.getRecorridoX().get(i));
+                    posicionY = subMapa.getRecorridoY().get(i);
+                    posicionX = subMapa.getRecorridoX().get(i);
+                    mapa.ubicacionAgenteRetorno(mapa, Agente.this);
+
                 }
 
+
             }
-        }
+        
+        
+        
+        System.out.println("Hemos llegado al final");
+
 
     }
 

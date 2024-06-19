@@ -19,13 +19,13 @@ public class Mapa {
 
         for (int i = 0; i < (this.numeroObstaculos = numeroObstaculos); i++) {
             Random rnd = new Random();
-            mapa[rnd.nextInt(9) + 1][rnd.nextInt(9) + 1] = '|';
+            mapa[rnd.nextInt(8) + 2][rnd.nextInt(9) + 1] = '|';
 
         }
 
         for (int i = 0; i < 14; i++) {
             Random rnd = new Random();
-            mapa[rnd.nextInt(8) + 1 ][rnd.nextInt(8) +1 ] = (char) (rnd.nextInt(9) + '1');
+            mapa[rnd.nextInt(8) + 2][rnd.nextInt(8) +1 ] = (char) (rnd.nextInt(9) + '1');
 
         }
 
@@ -52,6 +52,7 @@ public class Mapa {
             System.out.println("Hay un obstaculo");
             agente.posicionAnterior();
 
+
             obstaculos += 1;
         }else if ( agente.subMapa.subMapa[agente.posicionY][agente.posicionX] == 'X' ){
             System.out.println("Ya se conoce esa posición");
@@ -61,6 +62,17 @@ public class Mapa {
         mapa.mapa[agente.posicionY][agente.posicionX] = agente.nombreAgente;
 
 
+        System.out.println("La posicion del agente es: " + "Coordenadas: X:" + agente.posicionX + ". Y:" + agente.posicionY);
+        imprimirMapa();
+        System.out.println("El numero de obstaculos es: " + obstaculos);
+        System.out.println("---------------------------------------------------------------------");
+
+
+    }
+
+    public void ubicacionAgenteRetorno(Mapa mapa, Agente agente) {
+
+        mapa.mapa[agente.posicionY][agente.posicionX] = agente.nombreAgente;
         System.out.println("La posicion del agente es: " + "Coordenadas: X:" + agente.posicionX + ". Y:" + agente.posicionY);
         imprimirMapa();
         System.out.println("El numero de obstaculos es: " + obstaculos);
