@@ -42,29 +42,24 @@ public class Mapa {
     }
 
 
-    int obstaculos = 0;
-
     public void ubicacionAgente(Mapa mapa, Agente agente) {
         //Rastro Agente
         agente.rastroAgente(mapa);
 
         if (mapa.mapa[agente.posicionY][agente.posicionX] == '|') {
-            System.out.println("Hay un obstaculo");
+            System.out.println("¡Hay un obstaculo!");
             agente.posicionAnterior();
 
-
-            obstaculos += 1;
         }else if ( agente.subMapa.subMapa[agente.posicionY][agente.posicionX] == 'X' ){
-            System.out.println("Ya se conoce esa posición");
+            System.out.println("Posición registrada en el submapa.  No se movera");
             agente.posicionAnterior();
         }
 
         mapa.mapa[agente.posicionY][agente.posicionX] = agente.nombreAgente;
 
 
-        System.out.println("La posicion del agente es: " + "Coordenadas: X:" + agente.posicionX + ". Y:" + agente.posicionY);
+        System.out.println("La posicion del agente es: " +" X=" + agente.posicionX + " | Y=" + agente.posicionY);
         imprimirMapa();
-        System.out.println("El numero de obstaculos es: " + obstaculos);
         System.out.println("---------------------------------------------------------------------");
 
 
@@ -72,14 +67,13 @@ public class Mapa {
 
     public void ubicacionAgenteRetorno(Mapa mapa, Agente agente) {
 
-        mapa.mapa[agente.posicionY][agente.posicionX] = agente.nombreAgente;
-        System.out.println("La posicion del agente es: " + "Coordenadas: X:" + agente.posicionX + ". Y:" + agente.posicionY);
+        System.out.println("La posicion del agente es: " +" X=" + agente.posicionX + " | Y=" + agente.posicionY);
         imprimirMapa();
-        System.out.println("El numero de obstaculos es: " + obstaculos);
         System.out.println("---------------------------------------------------------------------");
 
+        agente.rastroAgenteR(mapa);
 
-
+        mapa.mapa[agente.posicionY][agente.posicionX] = agente.nombreAgente;
 
     }
 

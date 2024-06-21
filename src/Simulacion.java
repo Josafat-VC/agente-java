@@ -16,13 +16,6 @@ public class Simulacion {
 
         System.out.println("Comenzando retorno--------------------------");
 
-
-
-//        for (int i = submapaP.getRecorridoX().size(); i > 0 ; i--) {
-//            mapa.ubicacionAgenteRetorno(mapa,p);
-//            p.retorno();
-//        }
-
             p.retorno();
 
 

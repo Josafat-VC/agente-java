@@ -7,8 +7,6 @@ public class SubMapa {
     private HashMap<Integer, Integer> recorridoX;
     private int idHash = 1;
 
-    private int idRetorno;
-
 
 
     public SubMapa() {
@@ -22,9 +20,6 @@ public class SubMapa {
 
     }
 
-    public int getIdRetorno() {
-        return idRetorno;
-    }
 
     public HashMap<Integer, Integer> getRecorridoY() {
         return recorridoY;
@@ -45,15 +40,17 @@ public class SubMapa {
 
 
     public void movimientosSubMapa(int posicionX, int posicionY) {
-        subMapa[posicionY][posicionX] = 'X';
-        coordenadaY(posicionY);
-        coordenadaX(posicionX);
-        idHash++;
+        if(subMapa[posicionY][posicionX] != 'X'){
+            subMapa[posicionY][posicionX] = 'X';
+            coordenadaY(posicionY);
+            coordenadaX(posicionX);
+            idHash++;
+        }
+
     }
 
     private void coordenadaY(int posicionY) {
         recorridoY.put(idHash, posicionY);
-        idRetorno = recorridoY.size();
     }
 
     private void coordenadaX(int posicionX) {

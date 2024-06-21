@@ -11,6 +11,7 @@ public class Agente {
     protected  SubMapa subMapa;
     private int contadorRastro;
     private int recurso;
+    private static final String MENSAJE_LIMITE = "¡EL Agente esta en en limite!. No se movera";
 
 
     public Agente(char nombreAgente, int posicionX, int posicionY, Mapa mapa, SubMapa subMapa) {
@@ -39,6 +40,7 @@ public class Agente {
     }
 
     public void movimientoAgente() {
+
         // Guardar la posición anterior del Agente
         setAnteriorY(posicionY);
         setAnteriorX(posicionX);
@@ -52,30 +54,33 @@ public class Agente {
 
         switch (movimiento){
             case 0 -> { //Arriba
+                System.out.println("El movimiento es: Arriba ");
                 if(posicionY == 0){
-                    System.out.println("El Agente se encuentra en el limite");
+                    System.out.println(MENSAJE_LIMITE);
                     break;
                 }
                 posicionY--;
             }
             case 1 -> { // Derecha
+                System.out.println("El movimiento es: Derecha");
                 if (posicionX == 9){
-                    System.out.println("El Agente se encuentra en el limite");
+                    System.out.println(MENSAJE_LIMITE);
                     break;
                 }
                 posicionX++;
             }
             case 2 -> { //Abajo
+                System.out.println("El movimiento es: Abajo");
                 if (posicionY == mapa.mapa[0].length - 1){
-                    System.out.println("El Agente se encuentra en el limite");
+                    System.out.println(MENSAJE_LIMITE);
                     break;
                 }
                 posicionY++;
             }
             case 3 -> { // Izquierda
-
+                System.out.println("El movimiento es: Izquierda");
                 if (posicionX == 0){
-                    System.out.println("El Agente se encuentra en el limite");
+                    System.out.println(MENSAJE_LIMITE);
                     break;
                 }
                 posicionX--;
@@ -90,6 +95,12 @@ public class Agente {
         }
         contadorRastro++;
     }
+    public void rastroAgenteR(Mapa mapa){
+        if (contadorRastro != 0 ){
+            mapa.mapa[getAnteriorY()][getAnteriorX()] = '•';
+        }
+        contadorRastro++;
+    }
 
     public int verificar(){
         char c = mapa.mapa[posicionY][posicionX];
@@ -98,6 +109,7 @@ public class Agente {
 
 
     public void retorno(){
+
         int bandera = subMapa.getRecorridoX().size();
         System.out.println("Y: " + subMapa.getRecorridoY());
         System.out.println("X: " + subMapa.getRecorridoX());
@@ -106,22 +118,17 @@ public class Agente {
         if(bandera > 0){
                 for (int i = bandera; i > 0  ; i--) {
 
-                    System.out.println("Retorno en Y, id: "+ i + " " + subMapa.getRecorridoY().get(i));
-                    System.out.println("Retorno en X, id: "+ i + " " + subMapa.getRecorridoX().get(i));
+                    setAnteriorY(posicionY);
+                    setAnteriorX(posicionX);
+
                     posicionY = subMapa.getRecorridoY().get(i);
                     posicionX = subMapa.getRecorridoX().get(i);
                     mapa.ubicacionAgenteRetorno(mapa, Agente.this);
 
                 }
-
-
+                mapa.imprimirMapa();
             }
-        
-        
-        
         System.out.println("Hemos llegado al final");
-
-
     }
 
 
