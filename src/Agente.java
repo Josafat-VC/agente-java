@@ -40,13 +40,13 @@ public class Agente {
     }
 
     public void movimientoAgente() {
-
+        // Registrar movimiento en el subMapa
+        subMapa.movimientosSubMapa(posicionX, posicionY);
         // Guardar la posición anterior del Agente
         setAnteriorY(posicionY);
         setAnteriorX(posicionX);
 
-        // Registrar movimiento en el subMapa
-        subMapa.movimientosSubMapa(posicionX, posicionY);
+
 
         Random rnd = new Random();
 
@@ -109,6 +109,7 @@ public class Agente {
 
 
     public void retorno(){
+        System.out.println("------------------------- Comenzando retorno -------------------------");
 
         int bandera = subMapa.getRecorridoX().size();
         System.out.println("Y: " + subMapa.getRecorridoY());
@@ -126,7 +127,6 @@ public class Agente {
                     mapa.ubicacionAgenteRetorno(mapa, Agente.this);
 
                 }
-                mapa.imprimirMapa();
             }
         System.out.println("Hemos llegado al final");
     }

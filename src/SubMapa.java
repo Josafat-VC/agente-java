@@ -30,6 +30,7 @@ public class SubMapa {
     }
 
     public void imprimirSubMapa() {
+        System.out.println("Imprimiendo submapa del Agente");
         for (int filas = 0; filas < subMapa.length; filas++) {
             for (int columnas = 0; columnas < subMapa[filas].length; columnas++) {
                 System.out.print(subMapa[filas][columnas] + " ");

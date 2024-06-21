@@ -67,14 +67,12 @@ public class Mapa {
 
     public void ubicacionAgenteRetorno(Mapa mapa, Agente agente) {
 
-        System.out.println("La posicion del agente es: " +" X=" + agente.posicionX + " | Y=" + agente.posicionY);
-        imprimirMapa();
-        System.out.println("---------------------------------------------------------------------");
-
         agente.rastroAgenteR(mapa);
 
         mapa.mapa[agente.posicionY][agente.posicionX] = agente.nombreAgente;
-
+        imprimirMapa();
+        System.out.println("La posicion del agente es: " +" X=" + agente.posicionX + " | Y=" + agente.posicionY);
+        System.out.println("---------------------------------------------------------------------");
     }
 
 

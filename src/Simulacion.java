@@ -14,8 +14,6 @@ public class Simulacion {
 
         submapaP.imprimirSubMapa();
 
-        System.out.println("Comenzando retorno--------------------------");
-
             p.retorno();
 
 
