@@ -40,6 +40,8 @@ public class Agente {
     }
 
     public void movimientoAgente() {
+
+
         // Registrar movimiento en el subMapa
         subMapa.movimientosSubMapa(posicionX, posicionY);
         // Guardar la posición anterior del Agente
@@ -104,6 +106,7 @@ public class Agente {
 
     public int verificar(){
         char c = mapa.mapa[posicionY][posicionX];
+        System.out.println(Character.getNumericValue(c));
         return Character.getNumericValue(c);
     }
 

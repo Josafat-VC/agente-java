@@ -43,6 +43,16 @@ public class Mapa {
 
 
     public void ubicacionAgente(Mapa mapa, Agente agente) {
+        if (agente.verificar() < 11 && agente.verificar() > 1){
+            System.out.println("Hay un recurso");
+
+            agente.rastroAgente(mapa);
+            mapa.mapa[agente.posicionY][agente.posicionX] = agente.nombreAgente;
+            System.out.println("La posicion del agente es: " +" X=" + agente.posicionX + " | Y=" + agente.posicionY);
+            imprimirMapa();
+            agente.retorno();
+
+        }
         //Rastro Agente
         agente.rastroAgente(mapa);
 
@@ -60,6 +70,8 @@ public class Mapa {
 
         System.out.println("La posicion del agente es: " +" X=" + agente.posicionX + " | Y=" + agente.posicionY);
         imprimirMapa();
+
+
         System.out.println("---------------------------------------------------------------------");
 
 

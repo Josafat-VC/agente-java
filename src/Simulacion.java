@@ -14,7 +14,7 @@ public class Simulacion {
 
         submapaP.imprimirSubMapa();
 
-            p.retorno();
+//            p.retorno();
 
 
 
