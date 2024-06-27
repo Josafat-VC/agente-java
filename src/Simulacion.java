@@ -24,11 +24,12 @@ public class Simulacion {
                 recorrido = true;
                 while (recorrido) {
                     mapa.ubicacionAgente(mapa, p);
+                    if (!recorrido){
+                        break;
+                    }
                     p.movimientoAgente();
                 }
-                    mapa.ubicacionAgente(mapa, p);
                     submapaP.imprimirSubMapa();
-                    break;
             }
             case 2 ->{
                 main(null);
@@ -37,28 +38,5 @@ public class Simulacion {
             }
 
         }
-
-
-
-
-
-
-//        for (int i = 0; i < 15; i++) {
-//            mapa.ubicacionAgente(mapa,p);
-//            p.movimientoAgente();
-//
-//        }
-//        mapa.ubicacionAgente(mapa, p);
-//
-//        submapaP.imprimirSubMapa();
-
-
-
-
-
-
-
-
-
     }
 }

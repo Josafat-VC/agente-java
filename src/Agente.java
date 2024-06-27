@@ -111,6 +111,8 @@ public class Agente {
 
 
     public void retorno(){
+        subMapa.subMapa[posicionY][posicionX] = 'R';
+
         System.out.println("------------------------- Comenzando retorno -------------------------");
 
         int bandera = subMapa.getRecorridoX().size();

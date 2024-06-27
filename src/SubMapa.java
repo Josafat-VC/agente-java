@@ -58,21 +58,6 @@ public class SubMapa {
         recorridoX.put(idHash, posicionX);
     }
 
-    public void imprimirHas() {
-        System.out.println("Recorrido Y:");
-        for (HashMap.Entry<Integer, Integer> entrada : recorridoY.entrySet()) {
-            System.out.println("ID: " + entrada.getKey() + ", Posición Y: " + entrada.getValue());
-        }
-
-        System.out.println("Recorrido X:");
-        for (HashMap.Entry<Integer, Integer> entrada : recorridoX.entrySet()) {
-            System.out.println("ID: " + entrada.getKey() + ", Posición X: " + entrada.getValue());
-        }
-    }
-
-
-
-
 }
 
 
