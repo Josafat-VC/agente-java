@@ -43,6 +43,8 @@ public class Mapa {
 
 
     public void ubicacionAgente(Mapa mapa, Agente agente) {
+        tiempoEspera(1);
+
         if (agente.verificar() < 11 && agente.verificar() > 1){
             System.out.println("Hay un recurso");
 
@@ -51,6 +53,7 @@ public class Mapa {
             System.out.println("La posicion del agente es: " +" X=" + agente.posicionX + " | Y=" + agente.posicionY);
             imprimirMapa();
             agente.retorno();
+            return;
 
         }
         //Rastro Agente
@@ -78,6 +81,7 @@ public class Mapa {
     }
 
     public void ubicacionAgenteRetorno(Mapa mapa, Agente agente) {
+        tiempoEspera(1);
 
         agente.rastroAgenteR(mapa);
 
@@ -85,6 +89,17 @@ public class Mapa {
         imprimirMapa();
         System.out.println("La posicion del agente es: " +" X=" + agente.posicionX + " | Y=" + agente.posicionY);
         System.out.println("---------------------------------------------------------------------");
+    }
+
+    public void tiempoEspera(int tiempo){
+        int t = tiempo *1000;
+        try {
+            // Pausa por 1000 milisegundos (1 segundo)
+            Thread.sleep(t);
+        } catch (InterruptedException e) {
+            // Manejo de la excepción en caso de que el hilo sea interrumpido
+            e.printStackTrace();
+        }
     }
 
 

@@ -52,7 +52,7 @@ public class Agente {
 
         Random rnd = new Random();
 
-        int movimiento = rnd.nextInt(3);
+        int movimiento = rnd.nextInt(4);
 
         switch (movimiento){
             case 0 -> { //Arriba
@@ -106,7 +106,6 @@ public class Agente {
 
     public int verificar(){
         char c = mapa.mapa[posicionY][posicionX];
-        System.out.println(Character.getNumericValue(c));
         return Character.getNumericValue(c);
     }
 
@@ -120,18 +119,20 @@ public class Agente {
 
 
         if(bandera > 0){
-                for (int i = bandera; i > 0  ; i--) {
+            for (int i = bandera; i > 0  ; i--) {
 
-                    setAnteriorY(posicionY);
-                    setAnteriorX(posicionX);
+                setAnteriorY(posicionY);
+                setAnteriorX(posicionX);
 
-                    posicionY = subMapa.getRecorridoY().get(i);
-                    posicionX = subMapa.getRecorridoX().get(i);
-                    mapa.ubicacionAgenteRetorno(mapa, Agente.this);
+                posicionY = subMapa.getRecorridoY().get(i);
+                posicionX = subMapa.getRecorridoX().get(i);
+                mapa.ubicacionAgenteRetorno(mapa, Agente.this);
 
-                }
             }
+        }
         System.out.println("Hemos llegado al final");
+        Simulacion.recorrido = false;
+
     }
 
 
