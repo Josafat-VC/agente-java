@@ -1,10 +1,13 @@
 import java.util.Arrays;
 import java.util.Random;
+import java.util.Scanner;
 
 public class Mapa {
+    Scanner s = new Scanner(System.in);
 
     protected char[][] mapa;
     protected int numeroObstaculos;
+    public int contadorPosicion=0;
 
     public Mapa() {
 
@@ -42,9 +45,28 @@ public class Mapa {
     }
 
 
+    int opcionA;
     public void ubicacionAgente(Mapa mapa, Agente agente) {
         tiempoEspera(1);
 
+        if (contadorPosicion == 5){
+
+            System.out.print("¡¡ El Agente parece estar atorado !!\n1. Reiniciar \n2. Continuar \nElija una opción:");
+            opcionA= s.nextInt();
+            switch (opcionA){
+                case 1 ->{
+                    Simulacion.main(null);
+                }
+                case 2 -> {
+                    contadorPosicion=0;
+                    return;
+
+                }
+            }
+            contadorPosicion = 0;
+        }
+
+        //Verificación retorno
         if (agente.verificar() < 11 && agente.verificar() > 1){
             System.out.println("Hay un recurso");
 
@@ -66,6 +88,8 @@ public class Mapa {
         }else if ( agente.subMapa.subMapa[agente.posicionY][agente.posicionX] == 'X' ){
             System.out.println("Posición registrada en el submapa.  No se movera");
             agente.posicionAnterior();
+            contadorPosicion++;
+
         }
 
         mapa.mapa[agente.posicionY][agente.posicionX] = agente.nombreAgente;

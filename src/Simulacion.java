@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
 public class Simulacion {
-    static StringBuilder sb = new StringBuilder("Ingrese una opción:")
+    static StringBuilder sb = new StringBuilder("¡¡ Hola Bienvenido !!")
             .append("\n 1: Iniciar Recorrido ")
-            .append("\n 2: Reiniciar")
-            .append("\n 3: Salir");
+            .append("\n 2: Salir");
     protected static boolean recorrido = false;
+    private static boolean salir = false;
     public static void main(String[] args) {
 
 
@@ -16,27 +16,31 @@ public class Simulacion {
 
 
 
-        System.out.println(sb);
-        int opcion = s.nextInt();
 
-        switch (opcion){
-            case 1 -> {
-                recorrido = true;
-                while (recorrido) {
-                    mapa.ubicacionAgente(mapa, p);
-                    if (!recorrido){
-                        break;
+
+        while (!salir) {
+            System.out.println(sb);
+            System.out.print("Seleccione un opción: ");
+            int opcion = s.nextInt();
+
+            switch (opcion) {
+                case 1 -> {
+                    recorrido = true;
+                    while (recorrido) {
+                        mapa.ubicacionAgente(mapa, p);
+                        if (!recorrido) {
+                            break;
+                        }
+                        p.movimientoAgente();
                     }
-                    p.movimientoAgente();
-                }
                     submapaP.imprimirSubMapa();
-            }
-            case 2 ->{
-                main(null);
-            }
-            case 3 ->{
-            }
+             
+                }
+                case 2 -> {
+                    salir = true;
+                }
 
+            }
         }
     }
 }
